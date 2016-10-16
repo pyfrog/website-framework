@@ -1,0 +1,7 @@
+autoenv
+Flask
+Flask-Bootstrap
+Flask-HTTPAuth
+Flask-MongoEngine
+Flask-PyMongo
+gunicorn

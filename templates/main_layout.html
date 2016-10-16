@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block metas %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+{% endblock %}
+
+{% block navbar %}
+  {% include "main_navbar.html" %}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript"></script>
+{% endblock %}

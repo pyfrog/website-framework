@@ -1,0 +1,58 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}
+  Admin Dashboard
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <!-- Custom CSS -->
+  <link href="{{url_for('static', filename='admin/css/homepage.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <h2>Add New Category/Sub-Category</h2>
+    <p>Note: Please add Category first and then add its Sub Categories.</p>
+    <br>
+  </div>
+  <div class="row">
+    {% from "_formhelpers.html" import render_field %}
+    <h3>Add New Category</h3>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} {{ category }}">
+            <strong>{{ category }}!</strong> {{ message }}
+          </div>  
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method=post action="/admin/category/add">
+      <table style="width:100%">
+        {{ render_field(form.name) }}
+        {{ render_field(form.code) }}
+        {{ render_field(form.description) }}
+        {{ render_field(form.image) }}
+      </table>
+      <input type=submit value=ADD>
+    </form>
+  </div>
+</div>
+<!-- /.container -->
+<div class="container">
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; Your Website 2014</p>
+      </div>
+    </div>
+  </footer>
+</div>
+{% endblock %}
